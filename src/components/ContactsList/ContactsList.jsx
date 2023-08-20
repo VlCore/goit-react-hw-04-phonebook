@@ -2,15 +2,17 @@ import { Contact } from "./Contact/Contact"
 import PropTypes from 'prop-types';
 import { List } from "./ContactsList.styled";
 
-export const ContactsList = ({ contacts = [], filter, removeContact }) => {
+export const ContactsList = ({ contacts = [], filterValue, removeContact }) => {
 
-    const filteredCotacts = contacts.filter(el => el.name.toLowerCase().includes(filter.toLowerCase()))
+    const filteredContacts = contacts.filter(contact =>
+        contact.name && contact.name.toLowerCase().includes(filterValue.toLowerCase())
+      );
 
     return <List>
         {contacts.length === 0 
             ? <li><h3>Sorry, but the list is empty!</h3></li>
-            :filter
-                    ? filteredCotacts.map(contact => <Contact contact={contact} removeContact={removeContact} key={contact.id}/>)
+            :filterValue
+                    ? filteredContacts.map(contact => <Contact contact={contact} removeContact={removeContact} key={contact.id}/>)
                     :contacts.map(contact => <Contact contact={contact} removeContact={removeContact} key={contact.id}/>)} 
     </List>
 }
