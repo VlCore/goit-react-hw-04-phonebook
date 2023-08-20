@@ -1,5 +1,5 @@
-export const filterContacts = (contacts, searchTerm) => {
+export const filterContacts = (contacts, filter) => {
     return contacts.filter(contact =>
-        contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+        contact.name.toLowerCase().includes(filter.toLowerCase())
     );
 };

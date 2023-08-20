@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { Input } from './Filter.styled';
 
-export const Filter = ({ onCheangedFilter, filterValue }) => {
+export const Filter = ({ onChangedFilter, filterValue }) => {
     return (
         <>
             <Input
                 type="text"
                 name="filter"
-                onChange={onCheangedFilter}
+                onChange={onChangedFilter}
                 value={filterValue}
             />
         </>
@@ -16,5 +16,5 @@ export const Filter = ({ onCheangedFilter, filterValue }) => {
 
 Filter.propTypes = {
     // filterValue: PropTypes.string.isRequired,
-    onCheangedFilter:PropTypes.func.isRequired,
+    onChangedFilter:PropTypes.func.isRequired,
 };
